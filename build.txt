@@ -1,0 +1,3 @@
+displayName = Rain's Vanilla Overhaul
+author = Rain
+version = 0.2
