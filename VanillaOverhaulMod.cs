@@ -1,6 +1,7 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria;
+using System.Linq;
 
 // TODO: Frostspark boot + Lava Wader upgrade
 namespace VanillaOverhaulMod
@@ -107,6 +108,42 @@ namespace VanillaOverhaulMod
             recipe.AddIngredient(ItemID.Gel, 20);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(ItemID.SlimeStaff);
+            recipe.AddRecipe();
+
+            // Ankh Charm
+            RecipeFinder finder = new RecipeFinder();
+            finder.SetResult(ItemID.AnkhCharm);
+            foreach (Recipe ankhRecipe in finder.SearchRecipes())
+            {
+                RecipeEditor editor = new RecipeEditor(ankhRecipe);
+                editor.AddIngredient(ItemID.PocketMirror);
+            }
+
+            // Pocket Mirror magic
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.MagicMirror);
+            recipe.AddIngredient(ItemID.SoulofLight, 10);
+            recipe.AddIngredient(ItemID.Obsidian, 15);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(ItemID.PocketMirror);
+            recipe.AddRecipe();
+
+            // Magic Mirror iron
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.IronBar, 10);
+            recipe.AddIngredient(ItemID.Glass, 10);
+            recipe.AddIngredient(ItemID.FallenStar, 10);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(ItemID.MagicMirror);
+            recipe.AddRecipe();
+
+            // Magic Mirror lead
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.LeadBar, 10);
+            recipe.AddIngredient(ItemID.Glass, 10);
+            recipe.AddIngredient(ItemID.FallenStar, 10);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(ItemID.MagicMirror);
             recipe.AddRecipe();
         }
     }

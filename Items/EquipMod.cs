@@ -13,14 +13,31 @@ namespace VanillaOverhaulMod.Items
             // Lightning Boots
             if (item.type == ItemID.LightningBoots)
             {
-                player.moveSpeed += 1.12f;
+                player.moveSpeed += 0.05f;
             }
             // Frostspark Boots
             else if (item.type == ItemID.FrostsparkBoots)
             {
-                player.moveSpeed += 1.13f;
+                player.moveSpeed += 0.06f;
             }
 
+            // Fire Gauntlet
+            else if (item.type == ItemID.FireGauntlet)
+            {
+                player.meleeSpeed += 0.02f;
+                player.meleeDamage += 0.02f;
+            }
+
+            // Ankh Charm
+            else if (item.type == ItemID.AnkhCharm)
+            {
+                player.stoned = false;
+            }
+            // And Ankh Shield...
+            else if (item.type == ItemID.AnkhShield)
+            {
+                player.stoned = false;
+            }
         }
 
         public override void UpdateInventory(Item item, Player player)
@@ -104,7 +121,7 @@ namespace VanillaOverhaulMod.Items
             else if (item.type == ItemID.TungstenGreaves)
             {
                 player.moveSpeed -= 0.1f;
-                item.defense = 10;
+                item.defense = 12;
             }
 
             // Gold hat - damage
@@ -121,6 +138,22 @@ namespace VanillaOverhaulMod.Items
             else if (item.type == ItemID.GoldGreaves)
             {
                 player.allDamage += 0.05f;
+            }
+
+            // Platinum hat - defense
+            else if (item.type == ItemID.PlatinumHelmet)
+            {
+                item.defense = 7;
+            }
+            // Platinum shirt - defense
+            else if (item.type == ItemID.PlatinumChainmail)
+            {
+                item.defense = 9;
+            }
+            // Platinum boots - defense
+            else if (item.type == ItemID.PlatinumGreaves)
+            {
+                item.defense = 8;
             }
 
             // Obsidian hat - rogue velocity
@@ -142,6 +175,12 @@ namespace VanillaOverhaulMod.Items
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
+            // Fire Gauntlet - 12% increased melee damage and speed
+            if (item.type == ItemID.FireGauntlet)
+            {
+                addTooltip(tooltips, "12% increased melee damage and speed");
+            }
+
             // Eskimo Armor - 20% reduced manacost, 10% increased magic damage
             if (item.type == ItemID.EskimoCoat || item.type == ItemID.PinkEskimoCoat)
             {

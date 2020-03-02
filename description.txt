@@ -4,13 +4,12 @@ Bugs? Suggestions? General feedback? Blind hatred? Message Amaranth on discord -
 
 Thanks for trying it out :)
 
+Version 0.2.1: Updated Fire Gauntlet to match Mechanical Glove's stats. Updated armor: Platinum. Added stoned protection to Ankh Charm, Ankh Shield. Added Pocket Mirror to Ankh Charm recipe. Added item recipes: Pocket Mirror, Magic Mirror.
 Version 0.2: Added item recipe: Slime Staff (nerfed damage due to accessibility). Updated armor: Tungsten, Gold, Obsidian. Slightly increased movement speed bonus on Lightning Boots, Frostspark Boots.
 Version 0.1.1: Added item recipe: Cloud in a Bottle. Updated armor: Cactus, Silver, Gladiator, Eskimo.
-Version 0.1: Added some item recipes: Magic Carpet, Hermes boots, fishing information accessories, Cobalt Shield
+Version 0.1: Added item recipes: Magic Carpet, Hermes boots, fishing information accessories, Cobalt Shield
 
 Future development:
 - Make boomerangs pierce
-- Make platinum armor interesting
-- Add stoned protection to the ankh shield (pocket mirror)
 - Add dash a la Shield of Cthulhu to cobalt shield, obsidian shield, ankh shield (so you don't have to use Cthulhu the whole game)
 - Potentially add light sources to some endgame accessories?
