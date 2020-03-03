@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using VanillaOverhaulMod.Projectiles;
 
 namespace VanillaOverhaulMod.Items
 {
@@ -47,6 +49,64 @@ namespace VanillaOverhaulMod.Items
             {
                 item.damage = 5;
             }
+
+            // Wooden Boomerang
+            else if (item.type == ItemID.WoodenBoomerang)
+            {
+                item.shoot = ModContent.ProjectileType<WoodenBoomerangProj>();
+                item.useTime = 32;
+                item.knockBack = 1;
+            }
+
+            // Enchanted Boomerang
+            else if (item.type == ItemID.EnchantedBoomerang)
+            {
+                item.shoot = ModContent.ProjectileType<EnchantedBoomerangProj>();
+                item.useTime = 30;
+                item.knockBack = 2;
+            }
+
+            // Ice Boomerang
+            else if (item.type == ItemID.IceBoomerang)
+            {
+                item.shoot = ModContent.ProjectileType<IceBoomerangProj>();
+                item.useTime = 30;
+                item.knockBack = 2;
+            }
+
+            // Thorn Chakram
+            else if (item.type == ItemID.ThornChakram)
+            {
+                item.shoot = ModContent.ProjectileType<ThornChakramProj>();
+                item.useTime = 30;
+                item.knockBack = 2;
+            }
+
+            // Flamarang
+            else if (item.type == ItemID.Flamarang)
+            {
+                item.shoot = ModContent.ProjectileType<FlamarangProj>();
+                item.useTime = 28;
+                item.knockBack = 2;
+            }
+
+            // Bananarang
+            else if (item.type == ItemID.Bananarang)
+            {
+                item.shoot = ModContent.ProjectileType<BananarangProj>();
+                item.useTime = 28;
+                item.knockBack = 2;
+                item.maxStack = 1;
+            }
+
+            // Light Disc
+            else if (item.type == ItemID.LightDisc)
+            {
+                item.shoot = ModContent.ProjectileType<LightDiscProj>();
+                item.useTime = 20;
+                item.maxStack = 1;
+                item.knockBack = 1;
+            }
         }
 
         public override void UpdateEquip(Item item, Player player)
@@ -77,7 +137,7 @@ namespace VanillaOverhaulMod.Items
             // Cactus shirt - melee damage
             else if (item.type == ItemID.CactusBreastplate)
             {
-                player.meleeDamage += 0.02f;
+                player.meleeDamage += 0.05f;
             }
 
             // Silver hat - crit
@@ -108,19 +168,19 @@ namespace VanillaOverhaulMod.Items
             // Tungsten hat - -movement and liferegen
             else if (item.type == ItemID.TungstenHelmet)
             {
-                player.moveSpeed -= 0.01f;
+                player.moveSpeed -= 0.1f;
                 player.lifeRegen += 1;
             }
             // Tungsten shirt - -movement and liferegen
             else if (item.type == ItemID.TungstenChainmail)
             {
-                player.moveSpeed -= 0.02f;
+                player.moveSpeed -= 0.1f;
                 player.lifeRegen += 2;
             }
             // Tungsten boot - -ms
             else if (item.type == ItemID.TungstenGreaves)
             {
-                player.moveSpeed -= 0.1f;
+                player.moveSpeed -= 0.2f;
                 item.defense = 12;
             }
 
@@ -156,25 +216,20 @@ namespace VanillaOverhaulMod.Items
                 item.defense = 8;
             }
 
-            // Obsidian hat - rogue velocity
-            else if (item.type == ItemID.ObsidianHelm)
+            // Fossil hat - rogue velocity
+            else if (item.type == ItemID.FossilHelm)
             {
                 player.thrownVelocity *= 1.5f;
-            }
-            // Obsidian shirt - rogue damage
-            else if (item.type == ItemID.ObsidianShirt)
-            {
-                player.thrownDamage += 0.20f;
-            }
-            // Obsidian pants - rogue crit
-            else if (item.type == ItemID.ObsidianPants)
-            {
-                player.thrownCrit += 15;
             }
         } 
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
+            // Bananarang and Light Disc - remove stack size
+            if (item.type == ItemID.Bananarang || item.type == ItemID.LightDisc)
+            {
+                tooltips.Remove(tooltips.Find(x => x.Name == "Tooltip0"));
+            }
             // Fire Gauntlet - 12% increased melee damage and speed
             if (item.type == ItemID.FireGauntlet)
             {
@@ -202,10 +257,10 @@ namespace VanillaOverhaulMod.Items
             {
                 addTooltip(tooltips, "Increases melee crit by 2%");
             }
-            // Cactus shirt - 2% melee damage
+            // Cactus shirt - 5% melee damage
             else if (item.type == ItemID.CactusBreastplate)
             {
-                addTooltip(tooltips, "Increases melee damage by 2%");
+                addTooltip(tooltips, "Increases melee damage by 5%");
             }
 
             // Silver hat - 2% crit
@@ -256,20 +311,10 @@ namespace VanillaOverhaulMod.Items
                 addTooltip(tooltips, "5% increased damage");
             }
             
-            // Obsidian hat - +50% rogue velocity
-            else if (item.type == ItemID.ObsidianHelm)
+            // Fossil hat - +50% rogue velocity
+            else if (item.type == ItemID.FossilHelm)
             {
-                addTooltip(tooltips, "50% increased throwing velocity");
-            }
-            // Obsidian shirt - 12% increased rogue damage
-            else if (item.type == ItemID.ObsidianShirt)
-            {
-                addTooltip(tooltips, "20% increased throwing damage");
-            }
-            // Obsidian pants - 15% increased rogue crit
-            else if (item.type == ItemID.ObsidianPants)
-            {
-                addTooltip(tooltips, "15% increased throwing crit chance");
+                addTooltip(tooltips, "Greatly increased throwing velocity");
             }
         }
 
@@ -312,9 +357,9 @@ namespace VanillaOverhaulMod.Items
             }
 
             // Obsidian armor set
-            else if (head.type == ItemID.ObsidianHelm && body.type == ItemID.ObsidianShirt && legs.type == ItemID.ObsidianPants)
+            else if (head.type == ItemID.FossilHelm && body.type == ItemID.FossilShirt && legs.type == ItemID.FossilPants)
             {
-                return "ObsidianArmorSet";
+                return "FossilArmorSet";
             }
             return "";
         }
@@ -336,7 +381,7 @@ namespace VanillaOverhaulMod.Items
                 player.statDefense -= 1;
                 // thorns
                 player.thorns = 0.30f;
-                player.setBonus = "30% thorns";
+                player.setBonus = "Deal contact damage on hit";
             }
 
             // Gladiator armor set grants B E E F
@@ -375,7 +420,7 @@ namespace VanillaOverhaulMod.Items
             }
 
             // Obsidian set prevents throwing weapon use
-            else if (set.Equals("ObsidianArmorSet"))
+            else if (set.Equals("FossilArmorSet"))
             {
                 player.thrownCost50 = true;
                 player.thrownCost33 = true;

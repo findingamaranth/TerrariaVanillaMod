@@ -4,12 +4,17 @@ Bugs? Suggestions? General feedback? Blind hatred? Message Amaranth on discord -
 
 Thanks for trying it out :)
 
+Version 0.3: Reworked boomerangs: Bananarang, Enchanted Boomerang, Flamarang, Ice Boomerang, Light Disc, Thorn Chakram, Wooden Boomerang. Try them out. Bananarang and Light Disc's stackability is no longer useful and therefore their max stack size is 1. It is still currently impossible to reforget them, so their base stats are fairly agressive.
 Version 0.2.1: Updated Fire Gauntlet to match Mechanical Glove's stats. Updated armor: Platinum. Added stoned protection to Ankh Charm, Ankh Shield. Added Pocket Mirror to Ankh Charm recipe. Added item recipes: Pocket Mirror, Magic Mirror.
-Version 0.2: Added item recipe: Slime Staff (nerfed damage due to accessibility). Updated armor: Tungsten, Gold, Obsidian. Slightly increased movement speed bonus on Lightning Boots, Frostspark Boots.
+Version 0.2: Added item recipe: Slime Staff (nerfed damage due to accessibility). Updated armor: Tungsten, Gold, Fossil. Slightly increased movement speed bonus on Lightning Boots, Frostspark Boots.
 Version 0.1.1: Added item recipe: Cloud in a Bottle. Updated armor: Cactus, Silver, Gladiator, Eskimo.
 Version 0.1: Added item recipes: Magic Carpet, Hermes boots, fishing information accessories, Cobalt Shield
 
 Future development:
-- Make boomerangs pierce
 - Add dash a la Shield of Cthulhu to cobalt shield, obsidian shield, ankh shield (so you don't have to use Cthulhu the whole game)
+- Give Obsidian armor some love
+- Small buff to Necro armor
+- Swap some of Platinum armor's very high defenses to %damage reduction instead
+- Allow Light Disc / Bananarang to be reforged -> lower stats to compensate
 - Potentially add light sources to some endgame accessories?
+- Balance will continue to be monitored and updated as my minions playtest for me huehue
