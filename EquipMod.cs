@@ -33,12 +33,18 @@ namespace VanillaOverhaulMod.Items
             // Ankh Charm
             else if (item.type == ItemID.AnkhCharm)
             {
-                player.stoned = false;
+                player.buffImmune[BuffID.Stoned] = true;
             }
             // And Ankh Shield...
             else if (item.type == ItemID.AnkhShield)
             {
-                player.stoned = false;
+                player.buffImmune[BuffID.Stoned] = true;
+                player.dash = 2;
+            }
+            // Cobalt Shield and Obsidian Shield dash
+            else if (item.type == ItemID.CobaltShield || item.type == ItemID.ObsidianShield)
+            {
+                player.dash = 2;
             }
         }
 
@@ -48,6 +54,12 @@ namespace VanillaOverhaulMod.Items
             if (item.type == ItemID.SlimeStaff)
             {
                 item.damage = 5;
+            }
+
+            // Phoenix Blaster - make autofire
+            else if (item.type == ItemID.PhoenixBlaster)
+            {
+                item.autoReuse = true;
             }
 
             // Wooden Boomerang
@@ -107,6 +119,16 @@ namespace VanillaOverhaulMod.Items
                 item.maxStack = 1;
                 item.knockBack = 1;
             }
+        }
+
+        public override float UseTimeMultiplier(Item item, Player player)
+        {
+            if (item.type == ItemID.WoodenBoomerang || item.type == ItemID.ThornChakram || item.type == ItemID.LightDisc || item.type == ItemID.IceBoomerang || item.type == ItemID.Flamarang || item.type == ItemID.EnchantedBoomerang || item.type == ItemID.Bananarang)
+            {
+                return 1 / player.meleeSpeed;
+            }
+
+            else return base.UseTimeMultiplier (item, player);
         }
 
         public override void UpdateEquip(Item item, Player player)
@@ -194,10 +216,10 @@ namespace VanillaOverhaulMod.Items
             {
                 player.allDamage += 0.1f;
             }
-            // Gold boot - damage
+            // Gold boot - ms
             else if (item.type == ItemID.GoldGreaves)
             {
-                player.allDamage += 0.05f;
+                player.moveSpeed += 0.05f;
             }
 
             // Platinum hat - defense
@@ -219,7 +241,7 @@ namespace VanillaOverhaulMod.Items
             // Fossil hat - rogue velocity
             else if (item.type == ItemID.FossilHelm)
             {
-                player.thrownVelocity *= 1.5f;
+                player.thrownVelocity *= 1.3f;
             }
         } 
 
@@ -231,9 +253,15 @@ namespace VanillaOverhaulMod.Items
                 tooltips.Remove(tooltips.Find(x => x.Name == "Tooltip0"));
             }
             // Fire Gauntlet - 12% increased melee damage and speed
-            if (item.type == ItemID.FireGauntlet)
+            else if (item.type == ItemID.FireGauntlet)
             {
                 addTooltip(tooltips, "12% increased melee damage and speed");
+            }
+
+            // Ankh Shield, Cobalt Shield, Obsidian Shield - adds a dash
+            else if (item.type == ItemID.AnkhShield || item.type == ItemID.CobaltShield || item.type == ItemID.ObsidianShield)
+            {
+                tooltips.Add(new TooltipLine(mod, "Tooltip2", "Allows the player to dash into the enemy"));
             }
 
             // Eskimo Armor - 20% reduced manacost, 10% increased magic damage
@@ -308,7 +336,7 @@ namespace VanillaOverhaulMod.Items
             // Gold boots - +1 damage
             else if (item.type == ItemID.GoldGreaves)
             {
-                addTooltip(tooltips, "5% increased damage");
+                addTooltip(tooltips, "Moderately increased movement speed");
             }
             
             // Fossil hat - +50% rogue velocity

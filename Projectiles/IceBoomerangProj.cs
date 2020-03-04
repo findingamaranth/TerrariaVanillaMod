@@ -13,11 +13,10 @@ namespace VanillaOverhaulMod.Projectiles
     class IceBoomerangProj : ModProjectile
     {
         public override String Texture => "Terraria/Projectile_" + ProjectileID.IceBoomerang;
-        public float speed = 13f;
+        public float speed;
         public float delay = 30f;
         public float deceleration = 1.3f;
-        public float tileCollide = 3;
-        public float ID = 1;
+        public float tileCollide = 7;
 
         public override void SetDefaults()
         {
@@ -25,7 +24,13 @@ namespace VanillaOverhaulMod.Projectiles
             projectile.aiStyle = 0;
             projectile.timeLeft = 120;
             projectile.knockBack = 1;
+        }
 
+        public override bool PreAI()
+        {
+            Player player = Main.player[projectile.owner];
+            speed = 13f * (player.thrownVelocity + 1) / 2;
+            return true;
         }
 
         public override void AI()
@@ -75,7 +80,7 @@ namespace VanillaOverhaulMod.Projectiles
             {
                 // Default velocity
                 moveDir = new Vector2(projectile.velocity.X, projectile.velocity.Y);
-                if (moveDir.Length() < speed)
+                if (Math.Abs(moveDir.Length() - speed) > 1)
                 {
                     moveDir = Vector2.Multiply(moveDir, speed / moveDir.Length());
                     projectile.velocity.X = moveDir.X;
@@ -94,7 +99,6 @@ namespace VanillaOverhaulMod.Projectiles
             }
             else
             {
-                Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
                 if (projectile.velocity.X != oldVelocity.X)
                 {
                     projectile.velocity.X = -oldVelocity.X / 2;

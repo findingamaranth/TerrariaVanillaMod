@@ -3,18 +3,25 @@ Rain's Vanilla Overhaul is a simple mod that preserves the vanilla nature of the
 Bugs? Suggestions? General feedback? Blind hatred? Message Amaranth on discord -> Amaranth#9564
 
 Thanks for trying it out :)
+- Rain
 
-Version 0.3: Reworked boomerangs: Bananarang, Enchanted Boomerang, Flamarang, Ice Boomerang, Light Disc, Thorn Chakram, Wooden Boomerang. Try them out. Bananarang and Light Disc's stackability is no longer useful and therefore their max stack size is 1. It is still currently impossible to reforget them, so their base stats are fairly agressive.
+Changelog:
+Version 0.3.2: Changed the reworked boomerangs to scale throw rate instead of projectile speed with melee speed modifiers. Added item recipe: Wooden Boomerang, Enchanted Boomerang.
+Version 0.3.1: Gave Phoenix Blaster autoswing because Omniswing doesn't do it. Added item recipe: Rod of Discord. Modifiers to thrown speed now affect most boomerangs at 50% value. Added Shield of Cthulhu dash to Cobalt, Obsidian, Ankh Shields.
+Version 0.3: Reworked boomerangs: Bananarang, Enchanted Boomerang, Flamarang, Ice Boomerang, Light Disc, Thorn Chakram, Wooden Boomerang. Try them out. Bananarang and Light Disc's stackability is no longer useful and therefore their max stack size is 1. It is still currently impossible to reforge them, so their base stats are fairly aggressive.
 Version 0.2.1: Updated Fire Gauntlet to match Mechanical Glove's stats. Updated armor: Platinum. Added stoned protection to Ankh Charm, Ankh Shield. Added Pocket Mirror to Ankh Charm recipe. Added item recipes: Pocket Mirror, Magic Mirror.
 Version 0.2: Added item recipe: Slime Staff (nerfed damage due to accessibility). Updated armor: Tungsten, Gold, Fossil. Slightly increased movement speed bonus on Lightning Boots, Frostspark Boots.
 Version 0.1.1: Added item recipe: Cloud in a Bottle. Updated armor: Cactus, Silver, Gladiator, Eskimo.
 Version 0.1: Added item recipes: Magic Carpet, Hermes boots, fishing information accessories, Cobalt Shield
 
 Future development:
-- Add dash a la Shield of Cthulhu to cobalt shield, obsidian shield, ankh shield (so you don't have to use Cthulhu the whole game)
-- Give Obsidian armor some love
+- Give Obsidian armor some love. Probabily as a ranged set that gives default bullets a cool effect.
 - Small buff to Necro armor
 - Swap some of Platinum armor's very high defenses to %damage reduction instead
-- Allow Light Disc / Bananarang to be reforged -> lower stats to compensate
 - Potentially add light sources to some endgame accessories?
-- Balance will continue to be monitored and updated as my minions playtest for me huehue
+
+Balance will continue to be monitored and updated as my minions playtest for me huehue
+
+Known issues:
+- Light Disc / Bananarang cannot be reforged
+- Thorn Chakram behaves a lil weirdly...

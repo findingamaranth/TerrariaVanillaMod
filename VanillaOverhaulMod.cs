@@ -145,6 +145,30 @@ namespace VanillaOverhaulMod
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(ItemID.MagicMirror);
             recipe.AddRecipe();
+
+            // Rod of Discord
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.SoulofLight, 20);
+            recipe.AddIngredient(ItemID.FallenStar, 50);
+            recipe.AddIngredient(ItemID.SoulofFright, 10);
+            recipe.AddTile(TileID.CrystalBall);
+            recipe.SetResult(ItemID.RodofDiscord);
+            recipe.AddRecipe();
+
+            // Wooden Boomerang
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.Wood, 10);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(ItemID.WoodenBoomerang);
+            recipe.AddRecipe();
+
+            // Enchanted Boomerang
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.WoodenBoomerang);
+            recipe.AddIngredient(ItemID.FallenStar, 12);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(ItemID.EnchantedBoomerang);
+            recipe.AddRecipe();
         }
     }
 }
