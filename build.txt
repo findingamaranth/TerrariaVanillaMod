@@ -1,4 +1,4 @@
 displayName = Rain's Vanilla Overhaul
 author = Rain
-version = 0.3.2
-icon = "VanillaOverhaulMod.png"
+version = 0.4
+homepage = https://github.com/findingamaranth/TerrariaVanillaMod

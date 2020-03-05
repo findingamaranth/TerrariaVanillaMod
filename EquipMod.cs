@@ -15,12 +15,12 @@ namespace VanillaOverhaulMod.Items
             // Lightning Boots
             if (item.type == ItemID.LightningBoots)
             {
-                player.moveSpeed += 0.05f;
+                player.maxRunSpeed += 0.05f;
             }
             // Frostspark Boots
             else if (item.type == ItemID.FrostsparkBoots)
             {
-                player.moveSpeed += 0.06f;
+                player.maxRunSpeed += 0.06f;
             }
 
             // Fire Gauntlet
@@ -46,6 +46,38 @@ namespace VanillaOverhaulMod.Items
             {
                 player.dash = 2;
             }
+
+            // Avenger Emblem
+            else if (item.type == ItemID.AvengerEmblem)
+            {
+                player.allDamage += 0.06f;
+            }
+
+            // Destroyer Emblem
+            else if (item.type == ItemID.DestroyerEmblem)
+            {
+                player.allDamage += 0.08f;
+            }
+
+            // Hive pack
+            else if (item.type == ItemID.HiveBackpack)
+            {
+                player.maxMinions += 1;
+            }
+            // Spore sac
+            else if (item.type == ItemID.SporeSac)
+            {
+                player.maxMinions += 1;
+            }
+
+            // Brain of Confusion
+            else if (item.type == ItemID.BrainOfConfusion)
+            {
+                player.maxMinions += 1;
+                player.meleeCrit += 10;
+                player.rangedCrit += 10;
+                player.magicDamage += 10;
+            }
         }
 
         public override void UpdateInventory(Item item, Player player)
@@ -53,7 +85,7 @@ namespace VanillaOverhaulMod.Items
             // Slime staff
             if (item.type == ItemID.SlimeStaff)
             {
-                item.damage = 5;
+                item.damage = 6;
             }
 
             // Phoenix Blaster - make autofire
@@ -118,6 +150,18 @@ namespace VanillaOverhaulMod.Items
                 item.useTime = 20;
                 item.maxStack = 1;
                 item.knockBack = 1;
+            }
+
+            // Minishark
+            else if (item.type == ItemID.Minishark)
+            {
+                item.damage = 5;
+            }
+
+            // Bone Glove
+            else if (item.type == ItemID.BoneGlove)
+            {
+                item.damage = 20;
             }
         }
 
@@ -225,23 +269,80 @@ namespace VanillaOverhaulMod.Items
             // Platinum hat - defense
             else if (item.type == ItemID.PlatinumHelmet)
             {
-                item.defense = 7;
+                player.endurance += 0.04f;
             }
             // Platinum shirt - defense
             else if (item.type == ItemID.PlatinumChainmail)
             {
-                item.defense = 9;
+                player.endurance += 0.08f;
             }
             // Platinum boots - defense
             else if (item.type == ItemID.PlatinumGreaves)
             {
-                item.defense = 8;
+                player.endurance += 0.04f;
             }
 
             // Fossil hat - rogue velocity
             else if (item.type == ItemID.FossilHelm)
             {
                 player.thrownVelocity *= 1.3f;
+            }
+
+            // Necro shirt - ranged damage (+5% vanilla)
+            else if (item.type == ItemID.NecroBreastplate)
+            {
+                player.rangedDamage += 0.05f;
+            }
+            // Necro greaves - movement speed
+            else if (item.type == ItemID.NecroGreaves)
+            {
+                // Remove vanilla bonus
+                player.rangedDamage -= 0.05f;
+                player.maxRunSpeed += 0.2f;
+            }
+
+            // Pumpkin hat - max minions
+            else if (item.type == ItemID.PumpkinHelmet)
+            {
+                player.maxMinions += 1;
+            }
+            // Pumpkin shirt - max minions and damage
+            else if (item.type == ItemID.PumpkinBreastplate)
+            {
+                player.maxMinions += 1;
+                player.minionDamage += 0.08f;
+            }
+            // Pumpkin boots - minion damage
+            else if (item.type == ItemID.PumpkinLeggings)
+            {
+                player.minionDamage += 0.1f;
+            }
+
+            // Bee pants - +1 minion
+            else if (item.type == ItemID.BeeGreaves)
+            {
+                player.maxMinions += 1;
+            }
+
+            // Spider shirt - +1 minion
+            else if (item.type == ItemID.SpiderBreastplate)
+            {
+                player.maxMinions += 1;
+            }
+            // Tiki shirt - +1 minion
+            else if (item.type == ItemID.TikiShirt)
+            {
+                player.maxMinions += 1;
+            }
+            // Spooky shirt - +1 minion
+            else if (item.type == ItemID.SpookyBreastplate)
+            {
+                player.maxMinions += 1;
+            }
+            // Stardust helmet - +1 minion
+            else if (item.type == ItemID.StardustHelmet)
+            {
+                player.maxMinions += 1;
             }
         } 
 
@@ -333,16 +434,91 @@ namespace VanillaOverhaulMod.Items
             {
                 addTooltip(tooltips, "10% increased damage");
             }
-            // Gold boots - +1 damage
+            // Gold boots - ms
             else if (item.type == ItemID.GoldGreaves)
             {
                 addTooltip(tooltips, "Moderately increased movement speed");
             }
-            
+
+            // Plat hat - +4% DR
+            else if (item.type == ItemID.PlatinumHelmet)
+            {
+                addTooltip(tooltips, "+4% Damage Reduction");
+            }
+            // Plat shirt - +8% DR
+            else if (item.type == ItemID.PlatinumChainmail)
+            {
+                addTooltip(tooltips, "+8% Damage Reduction");
+            }
+            else if (item.type == ItemID.PlatinumGreaves)
+            {
+                addTooltip(tooltips, "+4% Damage Reduction");
+            }
+
             // Fossil hat - +50% rogue velocity
             else if (item.type == ItemID.FossilHelm)
             {
                 addTooltip(tooltips, "Greatly increased throwing velocity");
+            }
+
+            // Necro shirt - +5% ranged damage (+5% vanilla)
+            else if (item.type == ItemID.NecroBreastplate)
+            {
+                addTooltip(tooltips, "10% increased ranged damage");
+            }
+            // Necro boots - ms
+            else if (item.type == ItemID.NecroGreaves)
+            {
+                addTooltip(tooltips, "Moderately increased movement speed");
+            }
+
+            // Pumpkin hats - +1 minion
+            else if (item.type == ItemID.PumpkinHelmet)
+            {
+                addTooltip(tooltips, "+1 max minion");
+            }
+            // Pumpkin shirt - +1 minion, minion damage
+            else if (item.type == ItemID.PumpkinBreastplate)
+            {
+                addTooltip(tooltips, "+1 max minion\n8% increased minion damage");
+            }
+            // Pumpkin boots - 10% minion damage
+            else if (item.type == ItemID.PumpkinLeggings)
+            {
+                addTooltip(tooltips, "+10% minion damage");
+            }
+
+            // Bee greaves - +1 minion
+            else if (item.type == ItemID.BeeGreaves)
+            {
+                addTooltip(tooltips, "+1 max minion\n5% increased minion damage");
+            }
+
+            // Avenger emblem - 18% increased damage
+            else if (item.type == ItemID.AvengerEmblem)
+            {
+                addTooltip(tooltips, "18% increased damage");
+            }
+            // Destroyer emblem - 18% increased damage
+            else if (item.type == ItemID.DestroyerEmblem)
+            {
+                addTooltip(tooltips, "18% increased damage");
+            }
+
+            // Hive Pack +1 minion
+            else if (item.type == ItemID.HiveBackpack)
+            {
+                addTooltip(tooltips, "+1 max minions\nIncreases the strength of friendly bees");
+            }
+            // Spore sac - +1 minion
+            else if (item.type == ItemID.SporeSac)
+            {
+                addTooltip(tooltips, "+1 max minion\nSummons spores over time that will damage enemies");
+            }
+            // Brain of Confusion - +1 minion, +10% crit
+            else if (item.type == ItemID.BrainOfConfusion)
+            {
+                addTooltip(tooltips, "+1 max minion\n10% increased crit chance\nMay confuse nearby enemies after being struck");
             }
         }
 
@@ -384,10 +560,22 @@ namespace VanillaOverhaulMod.Items
                 return "GoldArmorSet";
             }
 
-            // Obsidian armor set
+            // Fossil armor set
             else if (head.type == ItemID.FossilHelm && body.type == ItemID.FossilShirt && legs.type == ItemID.FossilPants)
             {
                 return "FossilArmorSet";
+            }
+
+            // Obsidian armor set
+            else if (head.type == ItemID.ObsidianHelm && body.type == ItemID.ObsidianShirt && legs.type == ItemID.ObsidianPants)
+            {
+                return "ObsidianArmorSet";
+            }
+
+            // Rich Mahogany set
+            else if (head.type == ItemID.RichMahoganyHelmet && body.type == ItemID.RichMahoganyBreastplate && legs.type == ItemID.RichMahoganyGreaves)
+            {
+                return "RichMahoganySet";
             }
             return "";
         }
@@ -443,16 +631,31 @@ namespace VanillaOverhaulMod.Items
                 // Remove vanilla bonus
                 player.statDefense -= 3;
                 player.meleeSpeed += 0.30f;
-                player.meleeDamage -= 0.3f;
-                player.setBonus = "30% increased Melee Speed\nSet bonus: 30% reduced melee damage";
+                player.meleeDamage -= 0.25f;
+                player.setBonus = "30% increased Melee Speed\nSet bonus: 25% reduced melee damage";
             }
 
-            // Obsidian set prevents throwing weapon use
+            // Obsidian set causes bullets to do cool things
+            else if (set.Equals("ObsidianArmorSet"))
+            {
+                player.GetModPlayer<RainPlayer>().setObsidian(true);
+                player.rangedDamage += 0.2f;
+                player.setBonus = "20% increased projectile damage";
+            }
+
+            // Fossil set prevents throwing weapon use
             else if (set.Equals("FossilArmorSet"))
             {
                 player.thrownCost50 = true;
                 player.thrownCost33 = true;
                 player.setBonus = "67% chance to not consume thrown projectiles";
+            }
+
+            // Rich mahogany set grants +1 minion
+            else if (set.Equals("RichMahoganySet"))
+            {
+                player.maxMinions += 1;
+                player.setBonus = "+1 max minions";
             }
         }
 

@@ -6,6 +6,8 @@ Thanks for trying it out :)
 - Rain
 
 Changelog:
+Version 0.4: Nerfed Minishark damage slightly. Buffed Avenger and Destroyer emblems to not be worse than their components. Updated armor: Bee, Pumpkin, Rich Mahogany. Spider, Tiki, Spooky, Stardust armors now grant an additional max minion. Updated accessories: Hive Pack, Spore Sac, Brain of Confusion. Slightly increased Bone Glove's damage (if you know what I'm saying).
+Version 0.3.3: Updated armor: Platinum, Necro. Pushed an update that causes Obsidian armor to grant 20% projectile damage for now - this will be changed.
 Version 0.3.2: Changed the reworked boomerangs to scale throw rate instead of projectile speed with melee speed modifiers. Added item recipe: Wooden Boomerang, Enchanted Boomerang.
 Version 0.3.1: Gave Phoenix Blaster autoswing because Omniswing doesn't do it. Added item recipe: Rod of Discord. Modifiers to thrown speed now affect most boomerangs at 50% value. Added Shield of Cthulhu dash to Cobalt, Obsidian, Ankh Shields.
 Version 0.3: Reworked boomerangs: Bananarang, Enchanted Boomerang, Flamarang, Ice Boomerang, Light Disc, Thorn Chakram, Wooden Boomerang. Try them out. Bananarang and Light Disc's stackability is no longer useful and therefore their max stack size is 1. It is still currently impossible to reforge them, so their base stats are fairly aggressive.
@@ -16,9 +18,11 @@ Version 0.1: Added item recipes: Magic Carpet, Hermes boots, fishing information
 
 Future development:
 - Give Obsidian armor some love. Probabily as a ranged set that gives default bullets a cool effect.
-- Small buff to Necro armor
-- Swap some of Platinum armor's very high defenses to %damage reduction instead
+- Give plat a cool armor set bonus?
+- Add recipe for Titan Glove
 - Potentially add light sources to some endgame accessories?
+- Add recipe for aglet and anklet of the wind
+- Make Rich Mahogany set a summoner set
 
 Balance will continue to be monitored and updated as my minions playtest for me huehue
 
