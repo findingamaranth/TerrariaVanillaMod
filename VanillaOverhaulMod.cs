@@ -2,6 +2,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria;
 using System.Linq;
+using System.Collections.Generic;
 
 // TODO: Frostspark boot + Lava Wader upgrade
 namespace VanillaOverhaulMod
@@ -14,6 +15,12 @@ namespace VanillaOverhaulMod
 
         public override void AddRecipes()
         {
+            // Create equivalencies
+            List<int> anyCopperBar = new List<int> { ItemID.CopperBar, ItemID.TinBar };
+            List<int> anyIronBar = new List<int> { ItemID.IronBar, ItemID.LeadBar };
+            List<int> anySilverBar = new List<int> { ItemID.SilverBar, ItemID.TungstenBar };
+            List<int> anyGoldBar = new List<int> { ItemID.GoldBar, ItemID.PlatinumBar };
+
             // Magic carpet gold
             ModRecipe recipe = new ModRecipe(this);
             recipe.AddIngredient(ItemID.Silk, 30);
@@ -169,6 +176,38 @@ namespace VanillaOverhaulMod
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(ItemID.EnchantedBoomerang);
             recipe.AddRecipe();
+
+            // Aglet copper
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.CopperBar, 5);
+            recipe.SetResult(ItemID.Aglet);
+            recipe.AddTile(TileID.Anvils);
+            recipe.AddRecipe();
+
+            // Aglet tin
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.TinBar, 5);
+            recipe.SetResult(ItemID.Aglet);
+            recipe.AddTile(TileID.Anvils);
+            recipe.AddRecipe();
+
+            // Anklet of the Wind
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.JungleSpores, 15);
+            recipe.AddIngredient(ItemID.Cloud, 10);
+            recipe.AddIngredient(ItemID.PinkGel, 10);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(ItemID.AnkletoftheWind);
+            recipe.AddRecipe();
+
+            // Titan Glove cobalt
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.CobaltBar, 10);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(ItemID.TitanGlove);
+            recipe.AddRecipe();
+
+            // Titan Glove palladium
         }
     }
 }
