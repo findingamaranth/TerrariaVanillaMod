@@ -88,12 +88,6 @@ namespace VanillaOverhaulMod.Items
                 item.damage = 6;
             }
 
-            // Phoenix Blaster - make autofire
-            else if (item.type == ItemID.PhoenixBlaster)
-            {
-                item.autoReuse = true;
-            }
-
             // Wooden Boomerang
             else if (item.type == ItemID.WoodenBoomerang)
             {
