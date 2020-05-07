@@ -22,11 +22,13 @@ namespace VanillaOverhaulMod
             List<int> anyGoldBar = new List<int> { ItemID.GoldBar, ItemID.PlatinumBar };
 			List<int> anyCobaltBar = new List<int> {ItemID.CobaltBar, ItemID.PalladiumBar};
 			List<int> anyMythrilBar = new List<int> {ItemID.MythrilBar, ItemID.OrichalcumBar};
-			List<int> anyTitaniumBar = new List<int> {ItemID.TitaniumBar, ItemID.AdamantiteBar);
+			List<int> anyTitaniumBar = new List<int> { ItemID.TitaniumBar, ItemID.AdamantiteBar };
+
+            ModRecipe recipe;
 
             // Magic carpet
 			foreach (int gold in anyGoldBar) {
-				ModRecipe recipe = new ModRecipe(this);
+				recipe = new ModRecipe(this);
 				recipe.AddIngredient(ItemID.Silk, 30);
 				recipe.AddIngredient(gold, 8);
 				recipe.AddTile(TileID.Loom);
@@ -203,7 +205,7 @@ namespace VanillaOverhaulMod
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.Bone, 80);
 			recipe.AddTile(TileID.Anvils);
-			Recipe.SetResult(ItemID.ArmorPolish);
+			recipe.SetResult(ItemID.ArmorPolish);
 			recipe.AddRecipe();
 			
 			// Vitamins
@@ -217,7 +219,7 @@ namespace VanillaOverhaulMod
 			recipe.AddRecipe();
 			
 			// Fast Clock
-			foreach (int watch in new List<int>{ ItemID.GoldWatch, ItemID.PlatinumWatch) {
+			foreach (int watch in new List<int> { ItemID.GoldWatch, ItemID.PlatinumWatch }) {
 				recipe = new ModRecipe(this);
 				recipe.AddIngredient(ItemID.Timer1Second);
 				recipe.AddIngredient(watch);
@@ -247,7 +249,7 @@ namespace VanillaOverhaulMod
 			// Nazar
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.Lens, 5);
-			recipe.AddIngredient(ItemID.SoulOfNight, 10);
+			recipe.AddIngredient(ItemID.SoulofNight, 10);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(ItemID.Nazar);
 			recipe.AddRecipe();
@@ -255,10 +257,28 @@ namespace VanillaOverhaulMod
 			// Blindfold
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.Silk, 20);
-			recipe.AddIngredient(ItemID.SoulOfNight, 10);
+			recipe.AddIngredient(ItemID.SoulofNight, 10);
 			recipe.SetResult(ItemID.Blindfold);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.AddRecipe();
+
+            // Band of Starpower
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ItemID.FallenStar, 10);
+            recipe.SetResult(ItemID.BandofStarpower);
+            recipe.AddTile(TileID.Anvils);
+            recipe.AddRecipe();
+
+            // Bamd of Regeneration
+            foreach (int iron in anyIronBar)
+            {
+                recipe = new ModRecipe(this);
+                recipe.AddIngredient(ItemID.LifeCrystal);
+                recipe.AddIngredient(iron);
+                recipe.AddTile(TileID.Anvils);
+                recipe.SetResult(ItemID.BandofRegeneration);
+                recipe.AddRecipe();
+            }
         }
     }
 }

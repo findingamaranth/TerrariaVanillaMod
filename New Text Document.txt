@@ -1,0 +1,11 @@
+Concept: Copper tier armor makes earlygame spelunking easier, iron tier helps with the toughest earlygame areas
+Iron armor set effect: Increased defence and life regen when in the underworld, immunity to on fire! debuff
+Lead armor set effect: Increased defence and life regen when in the jungle, immunity to poisoned debuff
+Copper armor set effect: Increased movement speed and defence underwater
+Tin armor set effect: Frog leg effect (jump heigh, fall speed, fall damage reduction) when underground
+Note: I don't think anything in vanilla gives boosts when in a certain biome, so you'll have to see how Calamity does it.
+
+Concept: Cobalt/Mithril/Adamantite armor sets are lame and weaker compared to Palladium/Orichalcum/Titanium. Give the sets passive accessory effects to allow for more accessory diversity.
+Cobalt armor set bonus: Knockback immunity (cobalt shield effect), +1-2 life regen
+Mithril armor set bonus: Stars fall on hit (star cloak effect), moderate defence boost for a short while after being hit
+Adamantite armor set bonus: Increased invincibility time (cross necklace effect but even longer)
